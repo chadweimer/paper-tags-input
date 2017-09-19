@@ -2,6 +2,20 @@
 
 Material Design input control for a collection of tags
 
+<!--
+```
+<custom-element-demo>
+  <template>
+    <link rel="import" href="paper-tags-input.html">
+    <paper-tags-input></paper-tags-input>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<paper-tags-input></paper-tags-input>
+```
+
 ## Install the Polymer-CLI
 
 First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your element locally.
