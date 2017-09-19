@@ -7,7 +7,7 @@ Material Design input control for a collection of tags
 <custom-element-demo>
   <template>
     <link rel="import" href="paper-tags-input.html">
-    <paper-tags-input></paper-tags-input>
+    <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
 ```
