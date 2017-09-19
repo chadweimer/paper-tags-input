@@ -6,80 +6,96 @@
 <link rel="import" href="bower_components/paper-input/paper-input-container.html">
 
 <dom-module id="paper-tags-input">
-  <template>
-    <style>
-      :host {
-        display: block;
-      }
-      :host[hidden] {
-        display: none !important;
-      }
-    </style>
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+            :host[hidden] {
+                display: none !important;
+            }
+            input {
+                text-transform: lowercase;
+                width: auto !important;
+                padding-left: 0.5em;
+            }
+            .tag {
+                margin: 4px;
+                padding-right: 6px;
+                cursor: pointer;
+                @apply layout-horizontal;
+            }
+            .tag iron-icon {
+                --iron-icon-height: 20px;
+                --iron-icon-width: 20px;
+                color: var(--disabled-text-color);
+            }
+        </style>
     
-    <paper-input-container always-float-label>
-      <label slot="label">Tags</label>
-      <div slot="prefix">
-        <template is="dom-repeat" items="[[tags]]">
-          <paper-chip class="tag" selectable>[[item]] <iron-icon icon="icons:cancel" on-tap="_onTagRemoveTapped"></iron-icon></paper-chip>
-        </template>
-      </div>
-      <input is="iron-input" slot="input" placeholder="+tag" on-keydown="_onInputKeydown"></input>
-    </paper-input-container>
-  </template>
+        <paper-input-container always-float-label>
+            <label slot="label">Tags</label>
+            <div slot="prefix">
+                <template is="dom-repeat" items="[[tags]]">
+                    <paper-chip class="tag" selectable>[[item]] <iron-icon icon="icons:cancel" on-click="_onTagRemoveTapped"></iron-icon></paper-chip>
+                </template>
+            </div>
+            <input is="iron-input" slot="input" placeholder="+tag" on-keydown="_onInputKeydown"></input>
+        </paper-input-container>
+    </template>
 
-  <script>
-    /**
-     * `paper-tags-input`
-     * Material Design input control for a collection of tags
-     *
-     * @customElement
-     * @polymer
-     * @demo demo/index.html
-     */
-    class PaperTagsInput extends Polymer.Element {
-      static get is() { return 'paper-tags-input'; }
-      static get properties() {
-        return {
-          tags: {
-            type: Array,
-            notify: true,
-            value: function() { return []; }
-          }
-        };
-      }
+    <script>
+        /**
+        * `paper-tags-input`
+        * Material Design input control for a collection of tags
+        *
+        * @customElement
+        * @polymer
+        * @demo demo/index.html
+        */
+        class PaperTagsInput extends Polymer.Element {
+            static get is() { return 'paper-tags-input'; }
+            static get properties() {
+                return {
+                    tags: {
+                        type: Array,
+                        notify: true,
+                        value: function() { return []; }
+                    }
+                };
+            }
 
-      add(tag) {
-        if (this.tags === null) {
-          this.tags = [];
-        }
-        var tagIndex = this.tags.indexOf(tag);
-        if (tagIndex === -1) {
-          this.push('tags', tag);
-        }
-      }
-      remove(tag) {
-        if (this.tags === null) {
-          return;
-        }
-        var tagIndex = this.tags.indexOf(tag);
-        if (tagIndex === -1) {
-          this.slice('tags', tagIndex, 1);
-        }
-      }
+            add(tag) {
+                if (this.tags === null) {
+                    this.tags = [];
+                }
+                var tagIndex = this.tags.indexOf(tag);
+                if (tagIndex === -1) {
+                    this.push('tags', tag);
+                }
+            }
+            remove(tag) {
+                if (this.tags === null) {
+                    return;
+                }
+                var tagIndex = this.tags.indexOf(tag);
+                if (tagIndex > -1) {
+                    this.splice('tags', tagIndex, 1);
+                }
+            }
 
-      _onTagRemoveTapped(e) {
-        e.preventDefault();
+            _onTagRemoveTapped(e) {
+                e.preventDefault();
 
-        this.remove(e.model.item);
-      }
-      _onInputKeydown(e) {
-        if (e.KeyCode === 13) {
-          this.add(e.target.value.toLowerCase());
-          e.target.value = '';
+                this.remove(e.model.item);
+            }
+            _onInputKeydown(e) {
+                if (e.keyCode === 13) {
+                    this.add(e.target.value.toLowerCase());
+                    e.target.value = '';
+                }
+            }
         }
-      }
-    }
 
-    window.customElements.define(PaperTagsInput.is, PaperTagsInput);
-  </script>
+        window.customElements.define(PaperTagsInput.is, PaperTagsInput);
+    </script>
 </dom-module>

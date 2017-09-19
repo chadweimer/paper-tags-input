@@ -21,7 +21,7 @@
 
     <test-fixture id="ChangedPropertyTestFixture">
       <template>
-        <paper-tags-input prop1="new-prop1"></paper-tags-input>
+        <paper-tags-input tags="['abc', 'def']"></paper-tags-input>
       </template>
     </test-fixture>
 
@@ -30,19 +30,19 @@
 
         test('instantiating the element with default properties works', function() {
           var element = fixture('BasicTestFixture');
-          assert.equal(element.prop1, 'paper-tags-input');
+          assert.equal(element.tags, []);
           var elementShadowRoot = element.shadowRoot;
-          var elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello paper-tags-input!');
+          //var elementHeader = elementShadowRoot.querySelector('h2');
+          //assert.equal(elementHeader.innerHTML, 'Hello paper-tags-input!');
         });
 
         test('setting a property on the element works', function() {
           // Create a test fixture
           var element = fixture('ChangedPropertyTestFixture');
-          assert.equal(element.prop1, 'new-prop1');
+          assert.equal(element.tags, ['abc', 'def']);
           var elementShadowRoot = element.shadowRoot;
-          var elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello new-prop1!');
+          //var elementHeader = elementShadowRoot.querySelector('h2');
+          //assert.equal(elementHeader.innerHTML, 'Hello new-prop1!');
         });
 
       });
