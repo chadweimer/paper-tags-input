@@ -1,3 +1,5 @@
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/chadweimer/paper-tags-input)
+
 # \<paper-tags-input\>
 
 Material Design input control for a collection of tags
