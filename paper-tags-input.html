@@ -16,16 +16,17 @@
             }
             input {
                 text-transform: lowercase;
+                height: 36px;
                 width: auto !important;
                 padding-left: 0.5em;
             }
-            .tag {
-                margin: 4px;
+            paper-chip {
+                margin: 2px;
                 padding-right: 6px;
                 cursor: pointer;
                 @apply layout-horizontal;
             }
-            .tag iron-icon {
+            iron-icon {
                 --iron-icon-height: 20px;
                 --iron-icon-width: 20px;
                 color: var(--disabled-text-color);
@@ -36,7 +37,7 @@
             <label slot="label">Tags</label>
             <div slot="prefix">
                 <template is="dom-repeat" items="[[tags]]">
-                    <paper-chip class="tag" selectable>[[item]] <iron-icon icon="icons:cancel" on-click="_onTagRemoveTapped"></iron-icon></paper-chip>
+                    <paper-chip selectable>[[item]] <iron-icon icon="icons:cancel" on-tap="_onTagRemoveTapped"></iron-icon></paper-chip>
                 </template>
             </div>
             <input is="iron-input" slot="input" placeholder="+tag" on-keydown="_onInputKeydown"></input>
@@ -68,9 +69,13 @@
                 if (this.tags === null) {
                     this.tags = [];
                 }
-                var tagIndex = this.tags.indexOf(tag);
-                if (tagIndex === -1) {
-                    this.push('tags', tag);
+                
+                var trimmedTag = tag.replace(/^\s+/, '').replace(/\s+$/, '');
+                if (trimmedTag !== '') {
+                    var tagIndex = this.tags.indexOf(trimmedTag);
+                    if (tagIndex === -1) {
+                        this.push('tags', trimmedTag);
+                    }
                 }
             }
             remove(tag) {
