@@ -2,9 +2,9 @@
 <link rel="import" href="../polymer/lib/mixins/gesture-event-listeners.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
-<link rel="import" href="../iron-input/iron-input.html">
 <link rel="import" href="../paper-chip/paper-chip.html">
-<link rel="import" href="../paper-input/paper-input-container.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-styles/default-theme.html">
 
 <dom-module id="paper-tags-input">
     <template>
@@ -25,7 +25,6 @@
                 margin: 2px;
                 padding-right: 6px;
                 cursor: pointer;
-                @apply layout-horizontal;
             }
             iron-icon {
                 --iron-icon-height: 20px;
@@ -34,15 +33,13 @@
             }
         </style>
     
-        <paper-input-container always-float-label>
-            <label slot="label">Tags</label>
+        <paper-input label="Tags" placeholder="+tag" on-keydown="_onInputKeydown">
             <div slot="prefix">
                 <template is="dom-repeat" items="[[tags]]">
                     <paper-chip selectable>[[item]] <iron-icon icon="icons:cancel" on-tap="_onTagRemoveTapped"></iron-icon></paper-chip>
                 </template>
             </div>
-            <input is="iron-input" slot="input" placeholder="+tag" on-keydown="_onInputKeydown"></input>
-        </paper-input-container>
+        </paper-input>
     </template>
 
     <script>
