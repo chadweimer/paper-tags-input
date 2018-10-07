@@ -1,4 +1,4 @@
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/chadweimer/paper-tags-input)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/@cwmr/paper-tags-input)
 
 # \<paper-tags-input\>
 
@@ -8,7 +8,7 @@ Material Design input control for a collection of tags
 ```
 <custom-element-demo>
   <template>
-    <link rel="import" href="paper-tags-input.html">
+    <script type="module" href="paper-tags-input.js"></script>
     <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
