@@ -3,6 +3,7 @@ import { GestureEventListeners } from '@polymer/polymer/lib/mixins/gesture-event
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/paper-input/paper-input.js';
+import '@polymer/polymer/lib/elements/dom-repeat.js';
 import '@cwmr/paper-chip/paper-chip.js';
 /**
 * `paper-tags-input`
