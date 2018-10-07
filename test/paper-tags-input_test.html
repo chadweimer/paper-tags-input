@@ -6,10 +6,10 @@
 
     <title>paper-tags-input test</title>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../node_modules/wct-browser-legacy/browser.js"></script>
 
-    <link rel="import" href="../paper-tags-input.html">
+    <script type="module" src="../paper-tags-input.js"></script>
   </head>
   <body>
 
@@ -25,16 +25,15 @@
       </template>
     </test-fixture>
 
-    <script>
-      suite('paper-tags-input', function() {
+    <script type="module">
+      suite('paper-tags-input', () => {
 
-        test('instantiating the element with default properties works', function() {
+        test('instantiating the element with default properties works', () => {
           var element = fixture('BasicTestFixture');
           assert.equal(element.tags, []);
-          var elementShadowRoot = element.shadowRoot;;
         });
 
-        test('setting a property on the element works', function() {
+        test('setting a property on the element works', () => {
           var element = fixture('ChangedPropertyTestFixture');
           assert.equal(element.tags, ['abc', 'def']);
           var elementShadowRoot = element.shadowRoot;
@@ -42,7 +41,7 @@
           assert.equal(chips.length, 2);
         });
 
-        test('adding a tag works', function() {
+        test('adding a tag works', () => {
           var element = fixture('BasicTestFixture');
           element.add('abc');
           var elementShadowRoot = element.shadowRoot;
@@ -50,7 +49,7 @@
           assert.equal(chips.length, 1);
         });
 
-        test('removing a tag works', function() {
+        test('removing a tag works', () => {
           var element = fixture('ChangedPropertyTestFixture');
           element.remove('def');
           var elementShadowRoot = element.shadowRoot;
@@ -58,7 +57,7 @@
           assert.equal(chips.length, 1);
         });
 
-        test('adding a tag twice does nothing', function() {
+        test('adding a tag twice does nothing', () => {
           var element = fixture('BasicTestFixture');
           element.add('abc');
           element.add('abc');
@@ -67,7 +66,7 @@
           assert.equal(chips.length, 1);
         });
 
-        test('removing a non-existeny tag does nothing', function() {
+        test('removing a non-existeny tag does nothing', () => {
           var element = fixture('ChangedPropertyTestFixture');
           element.remove('ghi');
           var elementShadowRoot = element.shadowRoot;
@@ -76,7 +75,7 @@
         });
 
       });
-    </script>
+      </script>
 
   </body>
 </html>
