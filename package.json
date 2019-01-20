@@ -11,16 +11,23 @@
     "type-detect": "1.0.0"
   },
   "main": "paper-tags-input.js",
+  "scripts": {
+    "generate-types": "gen-typescript-declarations --deleteExisting --outDir . --verify",
+    "lint": "polymer lint",
+    "test": "polymer test"
+  },
   "dependencies": {
-    "@polymer/polymer": "^3.0.0",
-    "@polymer/paper-input": "^3.0.0",
+    "@cwmr/paper-chip": "^3.0.0",
     "@polymer/iron-icon": "^3.0.0",
     "@polymer/iron-icons": "^3.0.0",
+    "@polymer/paper-input": "^3.0.0",
     "@polymer/paper-styles": "^3.0.0",
-    "@cwmr/paper-chip": "^3.0.0"
+    "@polymer/polymer": "^3.0.0"
   },
   "devDependencies": {
+    "@polymer/gen-typescript-declarations": "^1.6.0",
     "@polymer/iron-demo-helpers": "^3.0.0",
+    "polymer-cli": "^1.9.0",
     "wct-browser-legacy": "^1.0.1",
     "@webcomponents/webcomponentsjs": "^2.0.0"
   },

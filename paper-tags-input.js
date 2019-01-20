@@ -1,10 +1,10 @@
 import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
-import { GestureEventListeners } from '@polymer/polymer/lib/mixins/gesture-event-listeners.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/paper-input/paper-input.js';
 import '@polymer/polymer/lib/elements/dom-repeat.js';
 import '@cwmr/paper-chip/paper-chip.js';
+
 /**
 * `paper-tags-input`
 * Material Design input control for a collection of tags
@@ -13,7 +13,7 @@ import '@cwmr/paper-chip/paper-chip.js';
 * @polymer
 * @demo demo/index.html
 */
-class PaperTagsInput extends GestureEventListeners(PolymerElement) {
+class PaperTagsInput extends PolymerElement {
   static get template() {
     return html`
         <style>
@@ -44,7 +44,7 @@ class PaperTagsInput extends GestureEventListeners(PolymerElement) {
         <paper-input label="Tags" placeholder="+tag" on-keydown="_onInputKeydown">
             <div slot="prefix">
                 <template is="dom-repeat" items="[[tags]]">
-                    <paper-chip selectable="">[[item]] <iron-icon icon="icons:cancel" on-tap="_onTagRemoveTapped"></iron-icon></paper-chip>
+                    <paper-chip selectable="">[[item]] <iron-icon icon="icons:cancel" on-click="_onTagRemoveClicked"></iron-icon></paper-chip>
                 </template>
             </div>
         </paper-input>
@@ -62,7 +62,7 @@ class PaperTagsInput extends GestureEventListeners(PolymerElement) {
       };
   }
 
-  add(tag) {
+  addTag(tag) {
       if (this.tags === null) {
           this.tags = [];
       }
@@ -75,7 +75,7 @@ class PaperTagsInput extends GestureEventListeners(PolymerElement) {
           }
       }
   }
-  remove(tag) {
+  removeTag(tag) {
       if (this.tags === null) {
           return;
       }
@@ -85,14 +85,12 @@ class PaperTagsInput extends GestureEventListeners(PolymerElement) {
       }
   }
 
-  _onTagRemoveTapped(e) {
-      e.preventDefault();
-
+  _onTagRemoveClicked(e) {
       this.remove(e.model.item);
   }
   _onInputKeydown(e) {
       if (e.keyCode === 13) {
-          this.add(e.target.value.toLowerCase());
+          this.addTag(e.target.value.toLowerCase());
           e.target.value = '';
       }
   }
