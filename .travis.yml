@@ -4,11 +4,11 @@ language: node_js
 node_js:
 - node
 addons:
-  firefox: latest-esr
+  firefox: latest
+  chrome: stable
 cache:
   directories:
   - node_modules
 before_script:
-- npm install polymer-cli
-- "$(npm bin)/polymer lint"
-script: xvfb-run $(npm bin)/polymer test --module-resolution=node --npm -l firefox
+- npm run lint
+script: xvfb-run npm run test -- -l firefox,chrome

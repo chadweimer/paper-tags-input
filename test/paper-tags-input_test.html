@@ -43,7 +43,7 @@
 
         test('adding a tag works', () => {
           var element = fixture('BasicTestFixture');
-          element.add('abc');
+          element.addTag('abc');
           var elementShadowRoot = element.shadowRoot;
           var chips = elementShadowRoot.querySelector('paper-chip');
           assert.equal(chips.length, 1);
@@ -51,7 +51,7 @@
 
         test('removing a tag works', () => {
           var element = fixture('ChangedPropertyTestFixture');
-          element.remove('def');
+          element.removeTag('def');
           var elementShadowRoot = element.shadowRoot;
           var chips = elementShadowRoot.querySelector('paper-chip');
           assert.equal(chips.length, 1);
@@ -59,8 +59,8 @@
 
         test('adding a tag twice does nothing', () => {
           var element = fixture('BasicTestFixture');
-          element.add('abc');
-          element.add('abc');
+          element.addTag('abc');
+          element.addTag('abc');
           var elementShadowRoot = element.shadowRoot;
           var chips = elementShadowRoot.querySelector('paper-chip');
           assert.equal(chips.length, 1);
@@ -68,7 +68,7 @@
 
         test('removing a non-existeny tag does nothing', () => {
           var element = fixture('ChangedPropertyTestFixture');
-          element.remove('ghi');
+          element.removeTag('ghi');
           var elementShadowRoot = element.shadowRoot;
           var chips = elementShadowRoot.querySelector('paper-chip');
           assert.equal(chips.length, 2);
