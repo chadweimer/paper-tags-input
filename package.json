@@ -11,10 +11,12 @@
     "type-detect": "1.0.0"
   },
   "main": "paper-tags-input.js",
+  "types": "paper-tags-input.d.ts",
   "scripts": {
     "generate-types": "gen-typescript-declarations --deleteExisting --outDir . --verify",
     "lint": "polymer lint",
-    "test": "polymer test"
+    "test": "polymer test",
+    "prepare": "npm run generate-types"
   },
   "dependencies": {
     "@cwmr/paper-chip": "^3.0.0",
@@ -27,9 +29,9 @@
   "devDependencies": {
     "@polymer/gen-typescript-declarations": "^1.6.0",
     "@polymer/iron-demo-helpers": "^3.0.0",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
     "polymer-cli": "^1.9.0",
-    "wct-browser-legacy": "^1.0.1",
-    "@webcomponents/webcomponentsjs": "^2.0.0"
+    "wct-browser-legacy": "^1.0.0"
   },
   "publishConfig": {
     "access": "public"
