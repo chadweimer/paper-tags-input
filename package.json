@@ -1,7 +1,7 @@
 {
   "description": "Material Design input control for a collection of tags",
   "name": "@cwmr/paper-tags-input",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "license": "MIT",
   "repository": "github:chadweimer/paper-tags-input",
   "resolutions": {
