@@ -1,3 +1,4 @@
+[![Published on NPM](https://img.shields.io/npm/v/@cwmr/paper-tags-input.svg?style=flat)](https://www.npmjs.com/package/@cwmr/paper-tags-input)
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/@cwmr/paper-tags-input)
 
 # \<paper-tags-input\>
