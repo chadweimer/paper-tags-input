@@ -9,13 +9,11 @@ env:
 before_script:
   - npm run lint
 script: npm run test -- -l firefox
-before_deploy:
-  - npm run generate-types
 deploy:
   provider: npm
   email: npm@dweimer.com
-  api_key:
-    secure: vtoy0HP21TNqb5EDk3VNjfa4IJvxvK+R9h2w0T3B8KmNjEysuieWSlzai3SotjerxudaefjwqdO+KqQKQFQD8Zx3ZP/ooj0BTJtVK2UurijxY1JnQwCPAEedrQVJTkC9jGsQz9RjwO5H7Cz1SPuK72+LZuY1jnFdekTz6c9BDsS/QXCJn69vxck+700YbXqgZiEKEcqpxTOFxQV3t+JxYNNs/+HqSxIyk/mdQpLs98rnypfWIWr2woq4crhbz2OGIQPwZu3QGLK+C5e5cEan6BN8A2vq+T8engYwe9XziDnDjGv+iA7EsHJQ2Cbo2vEkyri5xNji1CO3RQb88BFv4sZLBXMhAWwsFSPx1WWWcXu2rAvGhgL8C5KDJW9FnawikwleN36yk22XobNir3N1Ug5BC75gXAzJ2d3dziQ9pUZ1puqUd8ATVMOLnMqMH/WoKkNv4HRMFErOpBdyH/hV8k0l5DjQM1Rt6FDCKv92eWoxXZm0wrKVMtbtiUYxVe/zdVidQRXY24CcJ0oaof7G4s+DqVR59GN3TEs4HdbMdubbUbqMkfP22BGmN5sROepxIKkeXepi4D6U2yK0MaTfAzU+3/uepxNCcA/5/3OsHHzeiZ+PDy48si0lGWg90J0dTLBi1tWhBE9bP78HtwR1WUE5yyy6CM6EA1Y+pGn23ig=
+  api_key: "$NPM_TOKEN"
   on:
     tags: true
     repo: chadweimer/paper-tags-input
+  edge: true
