@@ -41,7 +41,7 @@ class PaperTagsInput extends PolymerElement {
                 }
             </style>
         
-            <paper-input label="Tags" placeholder="+tag" on-keydown="_onInputKeydown">
+            <paper-input label="[[label]]" placeholder="+tag" on-keydown="_onInputKeydown">
                 <div slot="prefix">
                     <template is="dom-repeat" items="[[tags]]">
                         <paper-chip selectable="">[[item]] <iron-icon icon="icons:cancel" on-click="_onTagRemoveClicked"></iron-icon></paper-chip>
@@ -54,6 +54,10 @@ class PaperTagsInput extends PolymerElement {
     static get is() { return 'paper-tags-input'; }
     static get properties() {
         return {
+            label: {
+                type: String,
+                value: 'Tags'
+            },
             tags: {
                 type: Array,
                 notify: true,
